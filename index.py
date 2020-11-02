@@ -72,7 +72,7 @@ root=Tk()
 root.geometry("450x600+510+130")
 root.resizable(0,0)
 root.overrideredirect(1)
-splash_image = PhotoImage(file="images/spl.gif")
+splash_image = PhotoImage(file="images/alpha.gif")
 
 def to_index():
     root.destroy()
