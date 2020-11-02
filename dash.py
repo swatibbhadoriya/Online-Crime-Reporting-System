@@ -1,6 +1,6 @@
-from Tkinter import *
+from tkinter import *
 import sqlite3
-from tkMessageBox import *
+from tkinter.messagebox import *
 #import cmsg #custom message file 
 
 con = sqlite3.Connection('DB')
