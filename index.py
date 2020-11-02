@@ -16,7 +16,7 @@ def index():
     Label(index_ui,image=bg).grid(row=0, column=0, rowspan=20, columnspan=20)
 
     Label(index_ui, text='Welcome', font='Helvetica 18 ', fg='white', bg='#34383C').place(x=50, y=230)
-    Label(index_ui, text='Criminal Records Management System', font='Helvetica 12 ', fg='white', bg='#34383C').place(x=50, y=260)
+    Label(index_ui, text='Crime Reporting  System', font='Helvetica 12 ', fg='white', bg='#34383C').place(x=50, y=260)
     Label(index_ui, text='Add / Remove / update and view the records using this interactive application', font='Helvetica 10', fg='#0D90CB', bg='#34383C').place(x=50, y=290)
     Label(index_ui, text='Reduced function calls, improved speed', font='Helvetica 10', fg='#0D90CB', bg='#34383C').place(x=50, y=310)
     Label(index_ui, text='Code made readable for further developement', font='Helvetica 10', fg='#0D90CB', bg='#34383C').place(x=50, y=330)
@@ -72,12 +72,12 @@ root=Tk()
 root.geometry("450x600+510+130")
 root.resizable(0,0)
 root.overrideredirect(1)
-splash_image = PhotoImage(file="images/alpha.gif")
+spl_image = PhotoImage(file="images/spl.gif")
 
 def to_index():
     root.destroy()
     index()
     
-Label(root, image = splash_image).place(x=0,y=0)
+Label(root, image = spl_image).place(x=0,y=0)
 root.after(3000,to_index)
 root.mainloop()
