@@ -41,20 +41,20 @@ def details_ui(option):
     Label(details_ui, image=bg).place(x=0,y=0)
     cur.execute("create table if not exists criminals (criminal_id varchar(10) PRIMARY KEY, lockup_id varchar(10), fname varchar(15), lname varchar(15),blood_group varchar(3), father_name varchar(30), gender varchar(6), age number(3), status varchar(10), crime varchar(15), state varchar(15),city varchar(10), street_no varchar(10), house_no varchar(10))") 
 
-    Label(details_ui, text='Crime ID: ', font='Helvetica 11 bold',bg='#34383C',fg='white', borderwidth=0).place(x=140, y=80)
+    Label(details_ui, text='User id: ', font='Helvetica 11 bold',bg='#34383C',fg='white', borderwidth=0).place(x=140, y=80)
     criminal_id = Entry(details_ui, font='Helvetica 11 bold', fg='#373E44')
     criminal_id.place(x=320, y=80)
 
 
-    Label(details_ui, text='Mobile no:', font='Helvetica 11 bold',bg='#34383C',fg='white').place(x=140, y=110)
+    Label(details_ui, text='Case id:', font='Helvetica 11 bold',bg='#34383C',fg='white').place(x=140, y=110)
     lockup_id = Entry(details_ui, font='Helvetica 11 bold', fg='#373E44')
     lockup_id.place(x=320, y=110)
 
-    Label(details_ui, text='First Name: ', font='Helvetica 11 bold',bg='#34383C',fg='white').place(x=140, y=140)
+    Label(details_ui, text='V First Name: ', font='Helvetica 11 bold',bg='#34383C',fg='white').place(x=140, y=140)
     fname = Entry(details_ui, font='Helvetica 11 bold', fg='#373E44')
     fname.place(x=320, y=140)
     
-    Label(details_ui, text='Last Name: ', font='Helvetica 11 bold',bg='#34383C',fg='white').place(x=140, y=170)
+    Label(details_ui, text='V Last Name: ', font='Helvetica 11 bold',bg='#34383C',fg='white').place(x=140, y=170)
     lname = Entry(details_ui, font='Helvetica 11 bold', fg='#373E44')
     lname.place(x=320, y=170)
 
@@ -66,7 +66,7 @@ def details_ui(option):
     father_name = Entry(details_ui, font='Helvetica 11 bold', fg='#373E44')
     father_name.place(x=320, y=230)
 
-    Label(details_ui, text='Gender: ', font='Helvetica 11 bold',bg='#34383C',fg='white').place(x=140, y=260)
+    Label(details_ui, text='Accd gender : ', font='Helvetica 11 bold',bg='#34383C',fg='white').place(x=140, y=260)
     gender = Entry(details_ui, font='Helvetica 11 bold', fg='#373E44')
     gender.place(x=320, y=260)
 
