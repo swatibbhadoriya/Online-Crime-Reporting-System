@@ -41,12 +41,12 @@ def details_ui(option):
     Label(details_ui, image=bg).place(x=0,y=0)
     cur.execute("create table if not exists criminals (criminal_id varchar(10) PRIMARY KEY, lockup_id varchar(10), fname varchar(15), lname varchar(15),blood_group varchar(3), father_name varchar(30), gender varchar(6), age number(3), status varchar(10), crime varchar(15), state varchar(15),city varchar(10), street_no varchar(10), house_no varchar(10))") 
 
-    Label(details_ui, text='Criminal ID: ', font='Helvetica 11 bold',bg='#34383C',fg='white', borderwidth=0).place(x=140, y=80)
+    Label(details_ui, text='Crime ID: ', font='Helvetica 11 bold',bg='#34383C',fg='white', borderwidth=0).place(x=140, y=80)
     criminal_id = Entry(details_ui, font='Helvetica 11 bold', fg='#373E44')
     criminal_id.place(x=320, y=80)
 
 
-    Label(details_ui, text='Lockup ID: ', font='Helvetica 11 bold',bg='#34383C',fg='white').place(x=140, y=110)
+    Label(details_ui, text='Mobile no:', font='Helvetica 11 bold',bg='#34383C',fg='white').place(x=140, y=110)
     lockup_id = Entry(details_ui, font='Helvetica 11 bold', fg='#373E44')
     lockup_id.place(x=320, y=110)
 
@@ -74,11 +74,11 @@ def details_ui(option):
     age = Entry(details_ui, font='Helvetica 11 bold', fg='#373E44')
     age.place(x=320, y=290)
 
-    Label(details_ui, text='Status: ', font='Helvetica 11 bold',bg='#34383C',fg='white').place(x=140, y=320)
+    Label(details_ui, text='Crime: ', font='Helvetica 11 bold',bg='#34383C',fg='white').place(x=140, y=320)
     status = Entry(details_ui, font='Helvetica 11 bold', fg='#373E44')
     status.place(x=320, y=320)
 
-    Label(details_ui, text='Crime: ', font='Helvetica 11 bold',bg='#34383C',fg='white').place(x=140, y=350)
+    Label(details_ui, text='Description', font='Helvetica 11 bold',bg='#34383C',fg='white').place(x=140, y=350)
     crime = Entry(details_ui, font='Helvetica 11 bold', fg='#373E44')
     crime.place(x=320, y=350)
 
@@ -94,7 +94,7 @@ def details_ui(option):
     street_no = Entry(details_ui, font='Helvetica 11 bold', fg='#373E44')
     street_no.place(x=320, y=440)
 
-    Label(details_ui, text='House No: ', font='Helvetica 11 bold',bg='#34383C',fg='white').place(x=140, y=470)
+    Label(details_ui, text='Time of crime ', font='Helvetica 11 bold',bg='#34383C',fg='white').place(x=140, y=470)
     house_no = Entry(details_ui, font='Helvetica 11 bold', fg='#373E44')
     house_no.place(x=320, y=470)
     def insert_sql():
@@ -270,4 +270,3 @@ def dashboard(username):
 
     
     dash_ui.mainloop()
-
