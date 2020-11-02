@@ -1,5 +1,5 @@
-from Tkinter import *
-from tkMessageBox import *
+from tkinter import *
+from tkinter.messagebox import *
 import dash
 
 
@@ -72,7 +72,7 @@ root=Tk()
 root.geometry("450x600+510+130")
 root.resizable(0,0)
 root.overrideredirect(1)
-splash_image = PhotoImage(file="images/splash.gif")
+splash_image = PhotoImage(file="images/spl.gif")
 
 def to_index():
     root.destroy()
@@ -81,4 +81,3 @@ def to_index():
 Label(root, image = splash_image).place(x=0,y=0)
 root.after(3000,to_index)
 root.mainloop()
-
