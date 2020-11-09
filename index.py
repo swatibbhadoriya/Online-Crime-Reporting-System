@@ -10,7 +10,7 @@ dash.create_admin()
 
 def index():
     index_ui = Tk()
-    index_ui.geometry("900x600+300+100")
+    index_ui.geometry("900x600")
     index_ui.resizable(0,0)
     bg = PhotoImage(file="images/background.gif")
     Label(index_ui,image=bg).grid(row=0, column=0, rowspan=20, columnspan=20)
@@ -72,7 +72,7 @@ root=Tk()
 root.geometry("450x600+510+130")
 root.resizable(0,0)
 root.overrideredirect(1)
-spl_image = PhotoImage(file="images/spl.gif")
+spl_image = PhotoImage(file="images/alpha.gif")
 
 def to_index():
     root.destroy()
