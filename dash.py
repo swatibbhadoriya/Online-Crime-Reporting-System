@@ -14,8 +14,6 @@ def create_admin():
     status = cur.fetchall()
     if (len(status))==0:
         cur.execute("insert into login values ('admin', 'admin', 'Administrator')")
-    else:
-        flag=0
 
 def sign_in(index_ui,username, password):
     try:
@@ -39,16 +37,16 @@ def details_ui(option):
     details_ui.resizable(0,0)
     bg = PhotoImage(file="images/windows_bg.gif")
     Label(details_ui, image=bg).place(x=0,y=0)
-    cur.execute("create table if not exists criminals (criminal_id varchar(10) PRIMARY KEY, lockup_id varchar(10), fname varchar(15), lname varchar(15),blood_group varchar(3), father_name varchar(30), gender varchar(6), age number(3), status varchar(10), crime varchar(15), state varchar(15),city varchar(10), street_no varchar(10), house_no varchar(10))") 
+    cur.execute("create table if not exists criminals (user_id varchar(10) PRIMARY KEY, mob_no varchar(10), fname varchar(15), lname varchar(15),blood_group varchar(15), father_name varchar(30), gender varchar(20), age number(20), status varchar(20), crime varchar(30), state varchar(15),city varchar(10), street_no varchar(10), house_no varchar(10))") 
 
     Label(details_ui, text='User id: ', font='Helvetica 11 bold',bg='#34383C',fg='white', borderwidth=0).place(x=140, y=80)
-    criminal_id = Entry(details_ui, font='Helvetica 11 bold', fg='#373E44')
-    criminal_id.place(x=320, y=80)
+    user_id = Entry(details_ui, font='Helvetica 11 bold', fg='#373E44')
+    user_id.place(x=320, y=80)
 
 
     Label(details_ui, text='Case id:', font='Helvetica 11 bold',bg='#34383C',fg='white').place(x=140, y=110)
-    lockup_id = Entry(details_ui, font='Helvetica 11 bold', fg='#373E44')
-    lockup_id.place(x=320, y=110)
+    mob_no = Entry(details_ui, font='Helvetica 11 bold', fg='#373E44')
+    mob_no.place(x=320, y=110)
 
     Label(details_ui, text='V First Name: ', font='Helvetica 11 bold',bg='#34383C',fg='white').place(x=140, y=140)
     fname = Entry(details_ui, font='Helvetica 11 bold', fg='#373E44')
@@ -99,7 +97,7 @@ def details_ui(option):
     house_no.place(x=320, y=470)
     def insert_sql():
         try:
-            cur.execute("insert into criminals values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)", (criminal_id.get(), lockup_id.get(), fname.get(), lname.get(), blood_group.get(), father_name.get(), gender.get(), age.get(), status.get(), crime.get(), state.get(), city.get(), street_no.get(), house_no.get()))
+            cur.execute("insert into criminals values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)", (user_id.get(), mob_no.get(), fname.get(), lname.get(), blood_group.get(), father_name.get(), gender.get(), age.get(), status.get(), crime.get(), state.get(), city.get(), street_no.get(), house_no.get()))
             showinfo('Inserted', 'Values are inserted')
         except:
             showerror('ERROR', 'Insertion failed')
@@ -110,7 +108,7 @@ def details_ui(option):
     
     def update():
         try:        
-            cur.execute("update criminals set lockup_id=?, fname=?, lname=?, blood_group=?, father_name=?, gender=?, age=?, status=?,crime=?,state=?, city=?, street_no=?, house_no=? where criminal_id=?",(lockup_id.get(), fname.get(), lname.get(), blood_group.get(), father_name.get(), gender.get(), age.get(), status.get(), crime.get(), state.get(), city.get(), street_no.get(), house_no.get(),criminal_id.get()))
+            cur.execute("update criminals set mob_no=?, fname=?, lname=?, blood_group=?, father_name=?, gender=?, age=?, status=?,crime=?,state=?, city=?, street_no=?, house_no=? where user_id=?",(mob_no.get(), fname.get(), lname.get(), blood_group.get(), father_name.get(), gender.get(), age.get(), status.get(), crime.get(), state.get(), city.get(), street_no.get(), house_no.get(),user_id.get()))
             details_ui.destroy()
             showinfo('UPDATED', 'DATA UPDATED')
         except:
@@ -119,14 +117,14 @@ def details_ui(option):
     if(option=='update'):
         Label(details_ui, text='Enter Criminial ID to update', borderwidth=0, bg='white', font=(12)).place(x=324, y=10)
         Button(details_ui, text='Update', font='Helvetica 14 bold',bg='#373E44',fg='white',borderwidth=0, command=update).place(x=460, y=520)
-    def view_sql(criminal_id):
+    def view_sql(user_id):
         try:
-            cur.execute("select * from criminals where criminal_id=?", [criminal_id])
+            cur.execute("select * from criminals where user_id=?", [user_id])
             details = cur.fetchall()[0]
 
-            if(len(lockup_id.get())!=0):
-               lockup_id.delete(0,END)
-            lockup_id.insert(0, details[1])
+            if(len(mob_no.get())!=0):
+               mob_no.delete(0,END)
+            mob_no.insert(0, details[1])
             if(len(fname.get())!=0):
                 fname.delete(0,END)
             fname.insert(0,details[2])
@@ -167,7 +165,7 @@ def details_ui(option):
         except:
             showerror('ERROR', 'Criminal record is not available for this ID')
     if (option=='view'):
-        Button(details_ui, text='VIEW', font='Helvetica 11 bold',bg='#373E44',fg='white',borderwidth=0, command=lambda:view_sql(criminal_id.get())).place(x=460 , y=520)
+        Button(details_ui, text='VIEW', font='Helvetica 11 bold',bg='#373E44',fg='white',borderwidth=0, command=lambda:view_sql(user_id.get())).place(x=460 , y=520)
         Label(details_ui, text='Enter Criminal id only', borderwidth=0, bg='white',font=(12)).place(x=360, y=10)
         
     
@@ -222,7 +220,7 @@ def remove():
     to_remove = Entry(remove_ui, font=(13))
     to_remove.place(x=338, y=330)
     def execute_remove(to_remove):
-        cur.execute("DELETE from criminals where criminal_id = ?",[to_remove.get()])
+        cur.execute("DELETE from criminals where user_id = ?",[to_remove.get()])
     Button(remove_ui, text=' '*20 + 'REMOVE' + ' '*20,bg='#F85661', fg='#34383C', font='Helvetica 15',command=lambda:execute_remove(to_remove)).place(x=270, y=490)
     con.commit()
     remove_ui.mainloop()
